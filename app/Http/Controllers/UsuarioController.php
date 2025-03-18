@@ -1,12 +1,13 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;  
- 
+use Illuminate\Support\Facades\Hash; 
+use Illuminate\Support\Facades\Storage;
+
+
 class UsuarioController extends Controller
 {
     public function index()
@@ -28,7 +29,7 @@ class UsuarioController extends Controller
             'email' => 'required|string|email|max:255|unique:usuarios',
             'password' => 'required|string|min:8|confirmed',
             'rol' => 'required|string',
-            'foto_perfil' => 'nullable|image|max:2048',
+            'foto_perfil' => 'nullable|image',
         ]);
 
         // Crear un nuevo usuario

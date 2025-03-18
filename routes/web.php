@@ -1,10 +1,6 @@
 <?php
 use App\Http\Controllers\UsuarioController;
-use App\Http\Controllers\ClaseController;
-use App\Http\Controllers\ReservaController;
-use App\Http\Controllers\MembresiaController;
 use Illuminate\Support\Facades\Route;
-
 
 // Página de inicio
 Route::get('/', function () {
@@ -12,9 +8,7 @@ Route::get('/', function () {
 })->name('home');
 
 // Formulario de registro
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
+Route::get('/register', [UsuarioController::class, 'create'])->name('register');
 
 // Manejar el envío del formulario de registro
 Route::post('/register', [UsuarioController::class, 'store'])->name('register.store');
