@@ -3,10 +3,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;  
-use Illuminate\Support\Facades\Hash; 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
-
 
 class UsuarioController extends Controller
 {
@@ -29,6 +28,7 @@ class UsuarioController extends Controller
             'email' => 'required|string|email|max:255|unique:usuarios',
             'password' => 'required|string|min:8|confirmed',
             'rol' => 'required|string',
+            'membresia' => 'required|string',
             'foto_perfil' => 'nullable|image',
         ]);
 
@@ -38,6 +38,7 @@ class UsuarioController extends Controller
         $usuario->email = $request->email;
         $usuario->password = Hash::make($request->password);
         $usuario->rol = $request->rol;
+        $usuario->membresia = $request->membresia;
 
         if ($request->hasFile('foto_perfil')) {
             $path = $request->file('foto_perfil')->store('public/perfiles');
@@ -91,6 +92,7 @@ class UsuarioController extends Controller
             'nombre' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'rol' => 'required|string',
+            'membresia' => 'required|string',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
@@ -98,6 +100,7 @@ class UsuarioController extends Controller
         $usuario->nombre = $request->nombre;
         $usuario->email = $request->email;
         $usuario->rol = $request->rol;
+        $usuario->membresia = $request->membresia;
 
         if ($request->hasFile('foto')) {
             $path = $request->file('foto')->store('fotos', 'public');

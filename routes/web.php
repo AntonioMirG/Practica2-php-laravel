@@ -1,5 +1,8 @@
 <?php
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ClaseController;
+use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\MembresiaController;
 use Illuminate\Support\Facades\Route;
 
 // Página de inicio

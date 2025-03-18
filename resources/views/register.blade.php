@@ -26,6 +26,14 @@
         <div>
             <label for="rol">Rol:</label>
             <select id="rol" name="rol" required>
+                <option value="Usuario">Usuario</option>
+                <option value="Profesor">Profesor</option>
+                <option value="Administrador">Administrador</option>
+            </select>
+        </div>
+        <div>
+            <label for="membresia">Membresía:</label>
+            <select id="membresia" name="membresia" required>
                 <option value="Básica">Básica</option>
                 <option value="Premium">Premium</option>
                 <option value="VIP">VIP</option>
