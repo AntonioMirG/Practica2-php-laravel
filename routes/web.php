@@ -35,6 +35,7 @@ Route::get('/usuarios', [UsuarioController::class, 'index'])->name('usuarios.ind
 
 // Listado de clases
 Route::get('/classes', [ClaseController::class, 'index'])->name('classes');
+Route::post('/classes/{id}/reservar', [ClaseController::class, 'reservar'])->name('clases.reservar');
 
 // Gestión de usuarios y clases para el administrador
 Route::get('/admin', [UsuarioController::class, 'admin'])->name('admin');

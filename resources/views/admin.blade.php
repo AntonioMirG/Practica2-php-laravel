@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administración</title>
+    <title>Panel de Administración</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
@@ -40,6 +40,23 @@
         </table>
 
         <h2>Gestión de Clases</h2>
+        <form action="{{ route('clases.store') }}" method="POST">
+            @csrf
+            <div class="form-group">
+                <label for="nombre">Nombre de la Clase:</label>
+                <input type="text" id="nombre" name="nombre" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="profesor_asignado">Profesor Asignado:</label>
+                <input type="text" id="profesor_asignado" name="profesor_asignado" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Crear Clase</button>
+        </form>
+        <br>
         <table class="table">
             <thead>
                 <tr>

@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use App\Models\Clase;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -29,7 +30,7 @@ class UsuarioController extends Controller
             'password' => 'required|string|min:8|confirmed',
             'rol' => 'required|string',
             'membresia' => 'required|string',
-            'foto_perfil' => 'nullable|image',
+            'foto_perfil' => 'nullable|image|max:2048',
         ]);
 
         // Crear un nuevo usuario
@@ -119,5 +120,12 @@ class UsuarioController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('home');
+    }
+
+    public function admin()
+    {
+        $usuarios = Usuario::all();
+        $clases = Clase::all();
+        return view('admin', compact('usuarios', 'clases'));
     }
 }
