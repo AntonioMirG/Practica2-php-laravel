@@ -14,5 +14,8 @@
     @else
         <p>No tiene foto de perfil.</p>
     @endif
+    <br>
+    <a href="{{ route("home") }}">Atras</a>
+
 </body>
 </html>

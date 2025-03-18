@@ -20,6 +20,7 @@
             @endif
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
+                <br>
                 <button type="submit">Cerrar sesión</button>
             </form>
         @else
